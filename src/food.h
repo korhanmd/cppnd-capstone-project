@@ -16,12 +16,14 @@ public:
     ~Food();
 
     FoodPhase getCurrentPhase() const;
+    void setGameRunning(bool running);
 
 protected:
     std::vector<std::thread> threads;
 
 private:
     FoodPhase _currentPhase;
+    bool _isGameRunning;
     void cycleThroughPhases();
 };
 

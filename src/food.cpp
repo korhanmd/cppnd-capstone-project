@@ -7,6 +7,7 @@
 Food::Food() {
     std::cout << "Food object is created" << std::endl;
     _currentPhase = FoodPhase::fresh;
+    _isGameRunning = true;
     std::cout << "Current phase of the food is " << _currentPhase << std::endl;
     threads.emplace_back(std::thread(&Food::cycleThroughPhases, this));
 }
@@ -22,7 +23,7 @@ void Food::cycleThroughPhases() {
     int cycle_duration = 5000;
     auto last_time = std::chrono::high_resolution_clock::now();
     
-    while (true) {
+    while (_isGameRunning) {
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
         auto current_time = std::chrono::high_resolution_clock::now();
@@ -41,4 +42,8 @@ void Food::cycleThroughPhases() {
 
 FoodPhase Food::getCurrentPhase() const {
     return _currentPhase;
+}
+
+void Food::setGameRunning(bool running) {
+    _isGameRunning = running;
 }
