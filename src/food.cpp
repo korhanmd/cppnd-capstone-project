@@ -1,6 +1,7 @@
 #include <iostream>
 #include <chrono>
 #include <future>
+#include <algorithm>
 #include "food.h"
 
 Food::Food() {
@@ -12,6 +13,9 @@ Food::Food() {
 
 Food::~Food() {
     std::cout << "Food object is terminated" << std::endl;
+    std::for_each(threads.begin(), threads.end(), [](std::thread &t) {
+        t.join();
+    });
 }
 
 void Food::cycleThroughPhases() {
