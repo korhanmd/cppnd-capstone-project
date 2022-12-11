@@ -2,7 +2,6 @@
 #define FOOD_H
 
 #include "SDL.h"
-#include <vector>
 #include <thread>
 
 enum FoodPhase {
@@ -19,7 +18,7 @@ public:
     void setGameRunning(bool running);
 
 protected:
-    std::vector<std::thread> threads;
+    std::thread t;
 
 private:
     FoodPhase _currentPhase;

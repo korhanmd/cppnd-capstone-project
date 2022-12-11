@@ -9,14 +9,12 @@ Food::Food() {
     _currentPhase = FoodPhase::fresh;
     _isGameRunning = true;
     std::cout << "Current phase of the food is " << _currentPhase << std::endl;
-    threads.emplace_back(std::thread(&Food::cycleThroughPhases, this));
+    t = std::thread(&Food::cycleThroughPhases, this);
 }
 
 Food::~Food() {
     std::cout << "Food object is terminated" << std::endl;
-    std::for_each(threads.begin(), threads.end(), [](std::thread &t) {
-        t.join();
-    });
+    t.join();
 }
 
 void Food::cycleThroughPhases() {
