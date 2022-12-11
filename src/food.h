@@ -19,7 +19,8 @@ protected:
     std::vector<std::thread> threads;
 
 private:
-    FoodPhase _currentPhase;    
+    FoodPhase _currentPhase;
+    void cycleThroughPhases();
 };
 
 #endif
