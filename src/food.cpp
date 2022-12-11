@@ -38,3 +38,7 @@ void Food::cycleThroughPhases() {
         }
     }
 }
+
+FoodPhase Food::getCurrentPhase() const {
+    return _currentPhase;
+}

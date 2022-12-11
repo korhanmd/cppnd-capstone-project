@@ -15,6 +15,8 @@ public:
     Food();
     ~Food();
 
+    FoodPhase getCurrentPhase() const;
+
 protected:
     std::vector<std::thread> threads;
 
