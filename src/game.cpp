@@ -48,6 +48,8 @@ void Game::Run(Controller const &controller, Renderer &renderer,
       SDL_Delay(target_frame_duration - frame_duration);
     }
   }
+
+  food.setGameRunning(false);
 }
 
 void Game::PlaceFood() {
@@ -66,7 +68,10 @@ void Game::PlaceFood() {
 }
 
 void Game::Update() {
-  if (!snake.alive) return;
+  if (!snake.alive) {
+    food.setGameRunning(false);
+    return;
+  }
 
   snake.Update();
 
