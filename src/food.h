@@ -8,6 +8,7 @@
 class Food : public SDL_Point {
  public:
   Food();
+  ~Food();
 
  protected:
   std::vector<std::thread> threads;
