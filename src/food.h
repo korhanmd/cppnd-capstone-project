@@ -19,6 +19,7 @@ protected:
     std::vector<std::thread> threads;
 
 private:
+    FoodPhase _currentPhase;    
 };
 
 #endif
