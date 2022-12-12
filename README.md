@@ -37,6 +37,20 @@ Criteria | Explanation
 --- | ---
 The project demonstrates an understanding of C++ functions and control structures. | There are variety of control structures and functions I added in files [food.cpp](https://github.com/korhanmd/cppnd-capstone-project/blob/main/src/food.cpp), [game.cpp](https://github.com/korhanmd/cppnd-capstone-project/blob/main/src/game.cpp), [renderer.cpp](https://github.com/korhanmd/cppnd-capstone-project/blob/main/src/renderer.cpp).
 
+### Object Oriented Programming
+Criteria | Explanation
+--- | ---
+The project uses Object Oriented Programming techniques. | The project code is organized into classes with class attributes to hold the data, and class methods to perform tasks in files [food.cpp](https://github.com/korhanmd/cppnd-capstone-project/blob/main/src/food.cpp), [food.h](https://github.com/korhanmd/cppnd-capstone-project/blob/main/src/food.h).
+Classes use appropriate access specifiers for class members. | All class data members are explicitly specified as public, protected, or private in [food.h](https://github.com/korhanmd/cppnd-capstone-project/blob/main/src/food.h).
+Classes encapsulate behavior. | Appropriate data and functions are grouped into classes. Member data that is subject to an invariant is hidden from the user. State is accessed via member functions such as [getCurrentPhase](https://github.com/korhanmd/cppnd-capstone-project/blob/main/src/food.h#L18) and [setGameRunning](https://github.com/korhanmd/cppnd-capstone-project/blob/main/src/food.h#L19)
+Classes follow an appropriate inheritance hierarchy. | [Food class](https://github.com/korhanmd/cppnd-capstone-project/blob/main/src/food.h#L13) inherited from SDL_Point to keep its previous functionality.
+
+### Concurrency
+Criteria | Explanation
+--- | ---
+The project uses multithreading. | The project uses multiple threads in the execution. [cycleThroughPhases](https://github.com/korhanmd/cppnd-capstone-project/blob/main/src/food.h#L27) function starts on another thread in the [constructor of Food class](https://github.com/korhanmd/cppnd-capstone-project/blob/main/src/food.cpp#L11).
+A mutex or lock is used in the project. | A [mutex](https://github.com/korhanmd/cppnd-capstone-project/blob/main/src/food.h#L28), [lock_guard](https://github.com/korhanmd/cppnd-capstone-project/blob/main/src/food.cpp#L53) and [unique_lock](https://github.com/korhanmd/cppnd-capstone-project/blob/main/src/food.cpp#L37) are used to protect data that is shared across multiple threads in the project code.
+
 ## CC Attribution-ShareAlike 4.0 International
 
 
