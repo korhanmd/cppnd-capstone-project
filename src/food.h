@@ -3,6 +3,7 @@
 
 #include "SDL.h"
 #include <thread>
+#include <mutex>
 
 enum FoodPhase {
     fresh,
@@ -24,6 +25,7 @@ private:
     FoodPhase _currentPhase;
     bool _isGameRunning;
     void cycleThroughPhases();
+    std::mutex _mutex;
 };
 
 #endif
