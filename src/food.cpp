@@ -3,15 +3,13 @@
 #include "food.h"
 
 Food::Food() {
-    std::cout << "Food object is created" << std::endl;
     _currentPhase = FoodPhase::fresh;
     _isGameRunning = true;
-    std::cout << "Current phase of the food is " << _currentPhase << std::endl;
+
     t = std::thread(&Food::cycleThroughPhases, this);
 }
 
 Food::~Food() {
-    std::cout << "Food object is terminated" << std::endl;
     t.join();
 }
 
@@ -30,8 +28,6 @@ void Food::cycleThroughPhases() {
             if (_currentPhase == FoodPhase::fresh) _currentPhase = FoodPhase::rotten;
             else _currentPhase = FoodPhase::fresh;
             uLock.unlock();
-
-            std::cout << "Phase changed " << _currentPhase << std::endl;
 
             last_time = std::chrono::high_resolution_clock::now();
         }
