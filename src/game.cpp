@@ -80,8 +80,10 @@ void Game::Update() {
 
   // Check if there's food over here
   if (food.x == new_x && food.y == new_y) {
+    // Increase or decrease score according to the food phase
     if (food.getCurrentPhase() == FoodPhase::fresh) score++;
     else score--;
+    
     PlaceFood();
     // Grow snake and increase speed.
     snake.GrowBody();
