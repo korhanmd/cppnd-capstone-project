@@ -15,7 +15,7 @@ public:
     Food();
     ~Food();
 
-    FoodPhase getCurrentPhase() const;
+    FoodPhase getCurrentPhase();
     void setGameRunning(bool running);
 
 protected:

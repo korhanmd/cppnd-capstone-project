@@ -38,7 +38,7 @@ void Food::cycleThroughPhases() {
     }
 }
 
-FoodPhase Food::getCurrentPhase() const {
+FoodPhase Food::getCurrentPhase() {
     std::lock_guard<std::mutex> uLock(_mutex);
     return _currentPhase;
 }
