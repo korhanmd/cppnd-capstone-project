@@ -1,7 +1,5 @@
 #include <iostream>
 #include <chrono>
-#include <future>
-#include <algorithm>
 #include "food.h"
 
 Food::Food() {
@@ -28,8 +26,10 @@ void Food::cycleThroughPhases() {
         auto time_diff = current_time - last_time;
 
         if (std::chrono::duration_cast<std::chrono::milliseconds>(time_diff).count() > cycle_duration) {
+            std::unique_lock<std::mutex> uLock(_mutex);
             if (_currentPhase == FoodPhase::fresh) _currentPhase = FoodPhase::rotten;
             else _currentPhase = FoodPhase::fresh;
+            uLock.unlock();
 
             std::cout << "Phase changed " << _currentPhase << std::endl;
 
@@ -39,6 +39,7 @@ void Food::cycleThroughPhases() {
 }
 
 FoodPhase Food::getCurrentPhase() const {
+    std::lock_guard<std::mutex> uLock(_mutex);
     return _currentPhase;
 }
 
