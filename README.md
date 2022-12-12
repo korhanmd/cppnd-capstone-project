@@ -28,6 +28,14 @@ In this project, I extended this Snake game, following the principles I have lea
 3. Compile: `cmake .. && make`
 4. Run it: `./SnakeGame`.
 
+## Addressed Rubric Points
+
+All required rubric points are met specifications. The other rubric points that I addressed:
+
+### Loops, Functions, I/O
+Criteria | Explanation
+--- | ---
+The project demonstrates an understanding of C++ functions and control structures. | There are variety of control structures and functions I added in files [food.cpp](https://github.com/korhanmd/cppnd-capstone-project/blob/main/src/food.cpp), [game.cpp](https://github.com/korhanmd/cppnd-capstone-project/blob/main/src/game.cpp), [renderer.cpp](https://github.com/korhanmd/cppnd-capstone-project/blob/main/src/renderer.cpp).
 
 ## CC Attribution-ShareAlike 4.0 International
 
